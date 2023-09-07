@@ -1,4 +1,5 @@
 import './App.css'
+// import './index.css'
 import User from './components/Form.jsx'
 
 function App() {
