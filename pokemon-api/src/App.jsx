@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import axios from 'axios'
 import './App.css'
 
 function App() {
@@ -6,10 +7,10 @@ function App() {
   const [pokelist, setPokelist] = useState([])
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon/?limit=807")
+    axios.get("https://pokeapi.co/api/v2/pokemon/?limit=807")
       .then(response => {
       // not the actual JSON response body but the entire HTTP response
-      return response.json()
+        return response.data
       }).then(response => {
       // we now run another promise to parse the HTTP response into usable JSON
         setPokelist(response.results)
